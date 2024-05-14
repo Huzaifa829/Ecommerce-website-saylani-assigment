@@ -319,7 +319,8 @@
     </div>
   </header>
 <!-- strt -->
-<div class="container">
+<div id="check_hide_show_shop_btn" class="container">
+ 
     <div id="check_hide_show" class="checkout-container">
       <div class="checkout-cards">
         <div id="ha_checkout_crds_show" class="row row-cols-1 row-cols-md-1 g-4">
@@ -370,7 +371,7 @@
               <span  id="ha_subtotal_3"></span>
             </div>
             <hr>
-            <button class="btn btn-primary btn-lg btn-block">Place Order</button>
+            <button onclick="plceORder()" class="btn btn-primary btn-lg btn-block">Place Order</button>
           </div>
         </div>
       </div>
@@ -498,6 +499,7 @@
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./js/app.js"></script>
   <script src="./js/checkout.js"></script>
 </body>

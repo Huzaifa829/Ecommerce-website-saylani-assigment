@@ -244,9 +244,9 @@ for (let i = 0; i < cardData.length; i++) {
                   <h3 class="secondary-font text-primary">RS ${element.price}</h3>
 
                   <div class="d-flex flex-wrap mt-3">
-                    <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                      <h5 class="text-uppercase m-0">Add to Cart</h5>
-                    </a>
+                  <div  onclick="addtocart(${i})" href="#" class="btn-cart me-3 px-4 pt-3 pb-3 ha_addToCard_btn">
+                  <h5 class="text-uppercase m-0">Add to Cart</h5>
+                </div>
                     <a href="#" class="btn-wishlist px-4 pt-3 ">
                       <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
                     </a>
@@ -283,9 +283,9 @@ for (let i = 0; i < cardData.length; i++) {
                 <h3 class="secondary-font text-primary">RS ${element.price}</h3>
 
                 <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">Add to Cart</h5>
-                  </a>
+                <div  onclick="addtocart(${i})" href="#" class="btn-cart me-3 px-4 pt-3 pb-3 ha_addToCard_btn">
+                <h5 class="text-uppercase m-0">Add to Cart</h5>
+              </div>
                   <a href="#" class="btn-wishlist px-4 pt-3 ">
                     <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
                   </a>

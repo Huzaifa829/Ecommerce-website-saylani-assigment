@@ -8,3 +8,9 @@
   .order-summary {
     width: 300px; 
   }
+
+  @media (max-width: 768px) {
+    .checkout-container{
+      flex-wrap: wrap;
+    }
+  }
