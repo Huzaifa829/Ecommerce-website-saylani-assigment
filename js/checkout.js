@@ -1,5 +1,9 @@
-const ha_checkout_crds_show = document.querySelector('#ha_checkout_crds_show')
 
+const ha_checkout_crds_show = document.querySelector('#ha_checkout_crds_show')
+const  ha_subtotal_1 = document.querySelector('#ha_subtotal_1')
+const  ha_subtotal_2 = document.querySelector('#ha_subtotal_2')
+const  ha_subtotal_3 = document.querySelector('#ha_subtotal_3')
+const  check_hide_show = document.querySelector('#check_hide_show')
 
 let storgeitem1 = JSON.parse(localStorage.getItem('cardItems'));
 let crdadd1 ;
@@ -11,6 +15,30 @@ else{
   crdadd1=storgeitem1
   console.log(crdadd1);
 }
+
+function hideshow() {
+  if (crdadd1.length === 0) {
+    check_hide_show.style.display = 'none'; // Fix the syntax for setting display property
+  }
+}
+hideshow()
+
+function totalItemprice(){
+  let item = 0;
+  let totalprc = 200
+for (let i = 0; i < crdadd1.length; i++) {
+  const element = crdadd1[i];
+  item = item + parseInt(element.quantity)
+  totalprc +=parseInt(element.price.replace(',', '')) * element.quantity
+}
+let totlpriceshow =item + totalprc
+let formattedTotalPrice = totalprc.toLocaleString();
+let formattedTotalPrice1 = totlpriceshow.toLocaleString();
+ha_subtotal_1.innerHTML =`Subtotal(${item} items):`
+ha_subtotal_2.innerHTML =`RS ${formattedTotalPrice}`
+ha_subtotal_3.innerHTML =`RS ${formattedTotalPrice1}`
+}
+totalItemprice()
 function increaseQuantity(btn,index) {
     var input = btn.parentNode.querySelector('input[type="number"]');
     var value = parseInt(input.value);
@@ -18,6 +46,7 @@ function increaseQuantity(btn,index) {
     crdadd1[index].quantity = input.value
     console.log(index);
     localStorage.setItem('cardItems',JSON.stringify(crdadd1))
+    totalItemprice()
 }
 
 function decreaseQuantity(btn,index) {
@@ -29,6 +58,7 @@ function decreaseQuantity(btn,index) {
         console.log(index);
     }
     localStorage.setItem('cardItems',JSON.stringify(crdadd1))
+    totalItemprice()
 
 }
 function deleteProductById(id) {
@@ -42,7 +72,11 @@ function deleteProductById(id) {
     }
     localStorage.setItem('cardItems',JSON.stringify(crdadd1))
     checkout_crds_show()
+    bagitems()
+    totalItemprice()
+    hideshow()
 }
+
 function checkout_crds_show(){
     ha_checkout_crds_show.innerHTML =''
     for (let i = 0; i < crdadd1.length; i++) {

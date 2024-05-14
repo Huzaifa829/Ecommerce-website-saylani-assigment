@@ -117,7 +117,7 @@ else{
 function chngePth(){
   window.location ='checkout.html'
 }
-function bagitems(){
+ function bagitems(){
   bag_item_show_detil.innerHTML =''
   let k =0
   bag_item_number.forEach(element => {
